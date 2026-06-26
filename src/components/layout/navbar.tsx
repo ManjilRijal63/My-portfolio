@@ -24,7 +24,7 @@ const navLinks = [
 
 export default function Navbar() {
   return (
-    <header className="border-b">
+    <header className="sticky top-0 z-50 border-b bg-background/80 backdrop-blur-xl">
       <Container>
         <div className="flex h-16 items-center justify-between">
           <Link

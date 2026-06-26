@@ -7,7 +7,8 @@ import { skills } from "@/data/skills"
 
 export default function SkillsSection() {
   return (
-    <section className="py-24">
+    <section id="skills"
+     className="py-24">
       <Container>
 
         <div className="space-y-12">

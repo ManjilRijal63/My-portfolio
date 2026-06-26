@@ -11,6 +11,7 @@ import Container from "@/components/shared/container"
 export default function HeroSection() {
   return (
     <section className="relative overflow-hidden py-24 sm:py-32">
+      <div className="absolute inset-0 -z-10 bg-gradient-to-b from-blue-500/10 via-transparent to-transparent" />
       <Container>
         <div className="flex flex-col gap-12 lg:flex-row lg:items-center lg:justify-between">
           
@@ -96,7 +97,9 @@ export default function HeroSection() {
 
           </div>
         </div>
+        
       </Container>
+    
     </section>
   )
 }

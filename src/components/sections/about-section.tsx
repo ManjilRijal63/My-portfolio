@@ -3,7 +3,8 @@ import Container from "@/components/shared/container"
 
 export default function AboutSection() {
   return (
-    <section className="py-24">
+    <section id="about"
+     className="py-24">
       <Container>
 
         <div className="grid gap-12 lg:grid-cols-2 lg:items-center">

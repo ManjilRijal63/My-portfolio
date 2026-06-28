@@ -1,4 +1,6 @@
+"use client"
 import Link from "next/link"
+import { motion } from "framer-motion"
 
 import { ArrowUpRight } from "lucide-react"
 import { FaGithub } from "react-icons/fa"
@@ -15,7 +17,15 @@ export default function ProjectCard({
   project,
 }: ProjectCardProps) {
   return (
-    <div className="group relative rounded-2xl border bg-card p-6 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl">
+    <motion.div
+  whileHover={{
+    y: -6,
+  }}
+  transition={{
+    duration: 0.25,
+  }}
+  className="group relative rounded-2xl border bg-card p-6 hover:shadow-xl"
+>
           <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-blue-500/20 via-transparent to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
       <div className="space-y-5">
 
@@ -68,6 +78,7 @@ export default function ProjectCard({
 
       </div>
 
-    </div>
+    </motion.div>
+    // close here 
   )
 }

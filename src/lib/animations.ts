@@ -12,3 +12,14 @@ export const fadeUp = {
     },
   },
 }
+
+
+export const staggerContainer = {
+  hidden: {},
+
+  visible: {
+    transition: {
+      staggerChildren: 0.15,
+    },
+  },
+}

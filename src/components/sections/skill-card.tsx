@@ -1,4 +1,7 @@
+"use client"
 import { Skill } from "@/types/skill"
+
+import { motion } from "framer-motion"
 
 interface SkillCardProps {
   skill: Skill
@@ -8,8 +11,16 @@ export default function SkillCard({
   skill,
 }: SkillCardProps) {
   return (
-    <div className="rounded-xl border bg-card p-5 transition-all hover:-translate-y-1 hover:shadow-md">
-      
+    <motion.div
+      whileHover={{
+        y: -5,
+      }}
+      transition={{
+        duration: 0.2,
+      }}
+      className="rounded-xl border bg-card p-5"
+    >
+
       <div className="space-y-2">
         <p className="text-sm text-blue-500">
           {skill.category}
@@ -20,6 +31,7 @@ export default function SkillCard({
         </h3>
       </div>
 
-    </div>
+    </motion.div>
+
   )
 }

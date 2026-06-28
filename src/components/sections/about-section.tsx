@@ -1,5 +1,9 @@
+"use client"
 import SectionHeading from "@/components/sections/section-heading"
 import Container from "@/components/shared/container"
+import { motion } from "framer-motion"
+
+import { fadeUp } from "@/lib/animations"
 
 export default function AboutSection() {
   return (
@@ -7,8 +11,13 @@ export default function AboutSection() {
      className="py-24">
       <Container>
 
-        <div className="grid gap-12 lg:grid-cols-2 lg:items-center">
-
+        <motion.div
+  variants={fadeUp}
+  initial="hidden"
+  whileInView="visible"
+  viewport={{ once: true }}
+  className="grid gap-12 lg:grid-cols-2 lg:items-center"
+>
           <div className="space-y-6">
 
             <SectionHeading
@@ -65,7 +74,8 @@ export default function AboutSection() {
 
           </div>
 
-        </div>
+        </motion.div>
+        {/* close here  */}
 
       </Container>
     </section>

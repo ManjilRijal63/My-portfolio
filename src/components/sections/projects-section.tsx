@@ -1,5 +1,9 @@
+"use client"
 import SectionHeading from "@/components/sections/section-heading"
 import Container from "@/components/shared/container"
+import { motion } from "framer-motion"
+
+import { fadeUp } from "@/lib/animations"
 
 import ProjectCard from "./project-card"
 
@@ -13,7 +17,13 @@ export default function ProjectsSection() {
     >
       <Container>
 
-        <div className="space-y-12">
+        <motion.div
+  variants={fadeUp}
+  initial="hidden"
+  whileInView="visible"
+  viewport={{ once: true }}
+  className="space-y-12"
+>
 
           <SectionHeading
             title="Projects"
@@ -31,7 +41,8 @@ export default function ProjectsSection() {
 
           </div>
 
-        </div>
+        </motion.div>
+        {/* close here  */}
 
       </Container>
     </section>

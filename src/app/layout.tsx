@@ -6,9 +6,54 @@ import Navbar from "@/components/layout/navbar"
 import Footer from "@/components/layout/footer"
 import { Toaster } from "@/components/ui/sonner"
 
+
 export const metadata: Metadata = {
-  title: "Manjil Rijal",
-  description: "Developer Portfolio",
+  title: "Manjil Rijal | Full Stack Developer",
+
+  description:
+    "Full Stack Developer specializing in Next.js, TypeScript, and modern web applications.",
+
+  keywords: [
+    "Manjil Rijal",
+    "Next.js Developer",
+    "Full Stack Developer",
+    "React Developer",
+    "Portfolio",
+  ],
+
+  authors: [
+    {
+      name: "Manjil Rijal",
+    },
+  ],
+
+  creator: "Manjil Rijal",
+
+
+  openGraph: {
+  title:
+    "Manjil Rijal | Full Stack Developer",
+
+  description:
+    "Modern portfolio built with Next.js, TypeScript, Tailwind CSS, and Framer Motion.",
+
+  url: "https://yourdomain.com",
+
+  siteName: "Manjil Portfolio",
+
+  images: [
+    {
+      url: "/og-image.png",
+      width: 1200,
+      height: 630,
+      alt: "Portfolio Preview",
+    },
+  ],
+
+  locale: "en_US",
+
+  type: "website",
+},
 }
 
 export default function RootLayout({

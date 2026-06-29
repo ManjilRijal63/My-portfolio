@@ -42,47 +42,60 @@ export default function ContactSection() {
   })
 
 
-    async function onSubmit(
-    values: ContactFormData
-  ) {
-    try {
-      setIsSubmitting(true)
+ async function onSubmit(
+  values: ContactFormData
+) {
+  try {
+    setIsSubmitting(true)
 
-      const response = await fetch(
-        "/api/contact",
-        {
-          method: "POST",
+    const response = await fetch(
+      "/api/contact",
+      {
+        method: "POST",
 
-          headers: {
-            "Content-Type":
-              "application/json",
-          },
+        headers: {
+          "Content-Type":
+            "application/json",
+        },
 
-          body: JSON.stringify(values),
-        }
-      )
-
-      if (!response.ok) {
-        throw new Error(
-          "Something went wrong"
-        )
+        body: JSON.stringify(values),
       }
+    )
 
-      toast.success(
-        "Message sent successfully"
-      )
+    if (!response.ok) {
+      const data =
+        await response.json()
 
-      form.reset()
-    } catch (error) {
-      toast.error(
-        "Failed to send message"
+      throw new Error(
+        data.message ||
+          "Something went wrong"
       )
-    } finally {
-      setIsSubmitting(false)
     }
-  }
 
-    return (
+    toast.success(
+      "Message sent successfully"
+    )
+
+    form.reset()
+
+  } catch (error) {
+
+    toast.error(
+      error instanceof Error
+        ? error.message
+        : "Failed to send message"
+    )
+
+  } finally {
+    setIsSubmitting(false)
+  }
+}
+
+
+
+
+
+  return (
     <section
       id="contact"
       className="py-24"
@@ -107,96 +120,96 @@ export default function ContactSection() {
                 className="space-y-6"
               >
 
-<FormField
-  control={form.control}
-  name="name"
-  render={({ field }) => (
-    <FormItem>
+                <FormField
+                  control={form.control}
+                  name="name"
+                  render={({ field }) => (
+                    <FormItem>
 
-      <FormLabel>
-        Name
-      </FormLabel>
+                      <FormLabel>
+                        Name
+                      </FormLabel>
 
-      <FormControl>
-        <Input
-          placeholder="Your name"
-          {...field}
-        />
-      </FormControl>
+                      <FormControl>
+                        <Input
+                          placeholder="Your name"
+                          {...field}
+                        />
+                      </FormControl>
 
-      <FormMessage />
+                      <FormMessage />
 
-    </FormItem>
-  )}
-/>
-<FormField
-  control={form.control}
-  name="email"
-  render={({ field }) => (
-    <FormItem>
+                    </FormItem>
+                  )}
+                />
+                <FormField
+                  control={form.control}
+                  name="email"
+                  render={({ field }) => (
+                    <FormItem>
 
-      <FormLabel>
-        Email
-      </FormLabel>
+                      <FormLabel>
+                        Email
+                      </FormLabel>
 
-      <FormControl>
-        <Input
-          type="email"
-          placeholder="your@email.com"
-          {...field}
-        />
-      </FormControl>
+                      <FormControl>
+                        <Input
+                          type="email"
+                          placeholder="your@email.com"
+                          {...field}
+                        />
+                      </FormControl>
 
-      <FormMessage />
+                      <FormMessage />
 
-    </FormItem>
-  )}
-/>
+                    </FormItem>
+                  )}
+                />
 
-<FormField
-  control={form.control}
-  name="message"
-  render={({ field }) => (
-    <FormItem>
+                <FormField
+                  control={form.control}
+                  name="message"
+                  render={({ field }) => (
+                    <FormItem>
 
-      <FormLabel>
-        Message
-      </FormLabel>
+                      <FormLabel>
+                        Message
+                      </FormLabel>
 
-      <FormControl>
-        <Textarea
-          rows={6}
-          placeholder="Write your message..."
-          {...field}
-        />
-      </FormControl>
+                      <FormControl>
+                        <Textarea
+                          rows={6}
+                          placeholder="Write your message..."
+                          {...field}
+                        />
+                      </FormControl>
 
-      <FormMessage />
+                      <FormMessage />
 
-    </FormItem>
-  )}
-/>
+                    </FormItem>
+                  )}
+                />
 
-<Button
-  type="submit"
-  size="lg"
-  className="w-full"
-  disabled={isSubmitting}
->
-  {isSubmitting ? (
-    <>
-      <Loader2 className="mr-2 h-4 w-4 animate-spin" />
-      Sending...
-    </>
-  ) : (
-    "Send Message"
-  )}
-</Button>
+                <Button
+                  type="submit"
+                  size="lg"
+                  className="w-full"
+                  disabled={isSubmitting}
+                >
+                  {isSubmitting ? (
+                    <>
+                      <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+                      Sending...
+                    </>
+                  ) : (
+                    "Send Message"
+                  )}
+                </Button>
 
 
 
-              
-                            </form>
+
+              </form>
             </Form>
 
           </div>

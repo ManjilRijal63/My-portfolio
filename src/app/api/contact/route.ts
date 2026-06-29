@@ -1,82 +1,58 @@
 import { NextResponse } from "next/server"
+
 import { Resend } from "resend"
 
+import ContactEmail from "@/emails/contact-email"
+
+import { contactSchema } from "@/lib/contact-schema"
 
 const resend = new Resend(
   process.env.RESEND_API_KEY
 )
 
-
 export async function POST(
   request: Request
 ) {
-
   try {
-
     const body = await request.json()
 
-    const {
-      name,
-      email,
-      message
-    } = body
+    const validatedData =
+      contactSchema.parse(body)
 
+    const { name, email, message } =
+      validatedData
 
     await resend.emails.send({
-
-      from:
-        "Portfolio Contact <onboarding@resend.dev>",
+      from: "Portfolio <onboarding@resend.dev>",
 
       to:
-        "yourgmail@gmail.com",
+        process.env.CONTACT_EMAIL || "",
 
       subject:
-        `New message from ${name}`,
+        "New Portfolio Contact Message",
 
-      html:
-      `
-      <h2>New Portfolio Message</h2>
-
-      <p>
-        <strong>Name:</strong>
-        ${name}
-      </p>
-
-      <p>
-        <strong>Email:</strong>
-        ${email}
-      </p>
-
-      <p>
-        <strong>Message:</strong>
-      </p>
-
-      <p>
-        ${message}
-      </p>
-      `
-
+      react: ContactEmail({
+        name,
+        email,
+        message,
+      }),
     })
-
 
     return NextResponse.json({
-      success:true
+      success: true,
     })
+  } catch (error) {
+  console.error(error)
 
-
-  } catch(error){
-
-    console.log(error)
-
-    return NextResponse.json(
-      {
-        success:false
-      },
-      {
-        status:500
-      }
-    )
-
-  }
-
+  return NextResponse.json(
+    {
+      success: false,
+      message:
+        "Failed to send email",
+    },
+    {
+      status: 500,
+    }
+  )
+}
 }

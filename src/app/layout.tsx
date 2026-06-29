@@ -4,6 +4,7 @@ import "./globals.css"
 import { ThemeProvider } from "@/components/layout/theme-provider"
 import Navbar from "@/components/layout/navbar"
 import Footer from "@/components/layout/footer"
+import { Toaster } from "@/components/ui/sonner"
 
 export const metadata: Metadata = {
   title: "Manjil Rijal",
@@ -33,6 +34,7 @@ export default function RootLayout({
 <Footer />
 
           </div>
+          <Toaster richColors />
         </ThemeProvider>
       </body>
     </html>

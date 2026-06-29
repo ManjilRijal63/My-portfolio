@@ -18,7 +18,7 @@ export default function SkillCard({
       transition={{
         duration: 0.2,
       }}
-      className="rounded-xl border bg-card p-5"
+      className="rounded-xl border border-border/50 bg-card/70 p-5 backdrop-blur"
     >
 
       <div className="space-y-2">

@@ -17,7 +17,7 @@ import { fadeUp } from "@/lib/animations"
 export default function HeroSection() {
   return (
     <section className="relative overflow-hidden py-24 sm:py-32">
-      <div className="absolute inset-0 -z-10 bg-gradient-to-b from-blue-500/10 via-transparent to-transparent" />
+      <div className="absolute inset-0 -z-10 bg-gradient-to-b from-blue-500/10 via-transparent to-transparent blur-3xl" />
       <Container>
         <div className="flex flex-col gap-12 lg:flex-row lg:items-center lg:justify-between">
 
@@ -40,7 +40,7 @@ export default function HeroSection() {
                 </span>
               </h1>
 
-              <p className="max-w-2xl text-lg text-muted-foreground">
+              <p className="max-w-xl text-lg leading-8 text-muted-foreground">
                 I create responsive, scalable,
                 and user-friendly applications
                 using modern frontend and backend
@@ -50,42 +50,42 @@ export default function HeroSection() {
 
             <div className="flex flex-wrap gap-4">
               <motion.div
-  whileHover={{
-    scale: 1.2,
-  }}
-  whileTap={{
-    scale: 0.97,
-  }}
->
-              <Button asChild size="lg">
-                <Link href="/projects">
-                  View Projects
-                </Link>
-              </Button>
+                whileHover={{
+                  scale: 1.2,
+                }}
+                whileTap={{
+                  scale: 0.97,
+                }}
+              >
+                <Button asChild size="lg">
+                  <Link href="/projects">
+                    View Projects
+                  </Link>
+                </Button>
               </motion.div>
 
 
 
-<motion.div
-  whileHover={{
-    scale: 1.2,
-  }}
-  whileTap={{
-    scale: 0.97,
-  }}
->
-              <Button
-                variant="outline"
-                size="lg"
-                asChild
+              <motion.div
+                whileHover={{
+                  scale: 1.2,
+                }}
+                whileTap={{
+                  scale: 0.97,
+                }}
               >
-                
-          
-                <Link href="/contact">
-                  Contact Me
-                </Link>
-              </Button>
-</motion.div>
+                <Button
+                  variant="outline"
+                  size="lg"
+                  asChild
+                >
+
+
+                  <Link href="/contact">
+                    Contact Me
+                  </Link>
+                </Button>
+              </motion.div>
             </div>
 
             <div className="flex items-center gap-5">
@@ -119,7 +119,7 @@ export default function HeroSection() {
 
             </div>
           </motion.div>
-          
+
 
           <motion.div
             initial={{
@@ -137,7 +137,7 @@ export default function HeroSection() {
             className="relative flex justify-center"
           >
 
-            <div className="flex h-72 w-72 items-center justify-center rounded-full border bg-muted text-6xl font-bold">
+            <div  className="flex h-72 w-72 items-center justify-center rounded-full border border-border/50 bg-muted/40 text-6xl font-bold backdrop-blur">
               MR
             </div>
           </motion.div>

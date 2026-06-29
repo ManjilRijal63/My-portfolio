@@ -6,25 +6,25 @@ import ThemeToggle from "@/components/shared/theme-toggle"
 const navLinks = [
   {
     name: "Home",
-    href: "/",
+    href: "#",
   },
   {
     name: "About",
-    href: "/about",
+    href: "#about",
   },
   {
     name: "Projects",
-    href: "/projects",
+    href: "#projects",
   },
   {
     name: "Contact",
-    href: "/contact",
+    href: "#contact",
   },
 ]
 
 export default function Navbar() {
   return (
-    <header className="sticky top-0 z-50 border-b bg-background/80 backdrop-blur-xl">
+    <header className="sticky top-0 z-50 border-b border-border/50 bg-background/70 backdrop-blur-xl">
       <Container>
         <div className="flex h-16 items-center justify-between">
           <Link

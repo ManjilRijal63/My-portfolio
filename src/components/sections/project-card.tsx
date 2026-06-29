@@ -18,15 +18,15 @@ export default function ProjectCard({
 }: ProjectCardProps) {
   return (
     <motion.div
-  whileHover={{
-    y: -6,
-  }}
-  transition={{
-    duration: 0.25,
-  }}
-  className="group relative rounded-2xl border bg-card p-6 hover:shadow-xl"
->
-          <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-blue-500/20 via-transparent to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
+      whileHover={{
+        y: -6,
+      }}
+      transition={{
+        duration: 0.25,
+      }}
+      className="group relative rounded-2xl border border-border/50 bg-card/80 p-6 backdrop-blur transition-all duration-300 hover:-translate-y-1 hover:border-blue-500/20 hover:shadow-xl"
+    >
+      <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-blue-500/20 via-transparent to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
       <div className="space-y-5">
 
         <div className="space-y-3">
@@ -42,7 +42,7 @@ export default function ProjectCard({
         </div>
 
         <div className="flex flex-wrap gap-2">
-          
+
           {project.techStack.map((tech) => (
             <Badge
               key={tech}
@@ -59,7 +59,7 @@ export default function ProjectCard({
           <Link
             href={project.githubUrl}
             target="_blank"
-            className="flex items-center gap-2 text-sm font-medium transition-all hover:text-blue-500"
+           className="flex items-center gap-2 text-sm font-medium text-muted-foreground transition-all hover:text-blue-500"
           >
             <FaGithub className="h-4 w-4" />
             GitHub
@@ -68,7 +68,7 @@ export default function ProjectCard({
           <Link
             href={project.liveUrl}
             target="_blank"
-            className="flex items-center gap-2 text-sm font-medium transition-all hover:text-blue-500"
+           className="flex items-center gap-2 text-sm font-medium text-muted-foreground transition-all hover:text-blue-500"
           >
             <ArrowUpRight className="h-4 w-4" />
             Live Demo

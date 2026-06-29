@@ -9,7 +9,7 @@ export default function SectionHeading({
 }: SectionHeadingProps) {
   return (
     <div className="space-y-3">
-      <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">
+      <h2  className="text-3xl font-bold tracking-tight sm:text-4xl lg:text-5xl">
         {title}
       </h2>
 
